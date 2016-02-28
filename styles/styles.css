@@ -1,0 +1,20 @@
+select {
+	display: block;
+	margin: 5px 3px 30px 3px;
+}
+
+label, .bold {
+	font-weight: bold;
+}
+
+#finalSandwich, #finalPrice, .choices {
+	float: left;
+	border: 2px solid royalblue;
+	margin: 5px;
+	padding: 0 5px;
+	width: 20%;
+}
+
+.choices {
+	padding-top: 15px;
+}
