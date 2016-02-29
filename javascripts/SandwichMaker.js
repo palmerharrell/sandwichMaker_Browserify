@@ -1,17 +1,30 @@
 "use strict";
 
-var SandwichMaker = (function() {
+let MakerModule = {
+  totalPrice: 0,
+  addTopping: function(toppingPrice) {
+    totalPrice += toppingPrice;
+  },
+  getTotal: function() {
+    return totalPrice;
+  }
+};
 
-  // Private variable to store the price
-  var totalPrice = 0;
+module.exports = MakerModule;
 
-  // Return the public interface that other code can interact with
-  return {
-    addTopping: function(toppingPrice) {
-      totalPrice += toppingPrice;
-    },
-    getTotal: function() {
-    	return totalPrice;
-    }
-  };
-})();
+//    ************* Original Version *************
+// let SandwichMaker = (function() {
+
+//   // Private variable to store the price
+//   var totalPrice = 0;
+
+//   // Return the public interface that other code can interact with
+//   return {
+//     addTopping: function(toppingPrice) {
+//       totalPrice += toppingPrice;
+//     },
+//     getTotal: function() {
+//       return totalPrice;
+//     }
+//   };
+// })();

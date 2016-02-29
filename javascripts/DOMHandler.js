@@ -7,6 +7,15 @@ let VeggieModule = require("./Veggies");
 let CheeseModule = require("./Cheese");
 let CondimentModule = require("./Condiments");
 
+console.log("~~~ ~~~ ~~~ MODULES ~~~ ~~~ ~~~");
+console.log("MakerModule", MakerModule);
+console.log("BreadModule", BreadModule);
+console.log("MeatModule", MeatModule);
+console.log("VeggieModule", VeggieModule);
+console.log("CheeseModule", CheeseModule);
+console.log("CondimentModule", CondimentModule);
+
+
 // Variable to hold the final price. Default to 0.
 var finalSandwichPrice = 0;
 
