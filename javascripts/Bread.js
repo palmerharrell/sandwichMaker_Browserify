@@ -8,7 +8,7 @@ let BreadModule = {
     Rye: 0.85
   },
   addBread: function(ingredient) {
-    return breadPrices[ingredient];
+    return BreadModule.breadPrices[ingredient];
   }
 
 };

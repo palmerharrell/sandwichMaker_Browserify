@@ -3,12 +3,12 @@
 let CondimentModule = {
 
   condimentPrices: {
-    Turkey: 0.90, 
-    Beef: 1.10,
-    Chicken: 1.00
+    Mustard: 0.09, 
+    Mayo: 0.12,
+    Ketchup: 0.15
   },
   addCondiment: function(ingredient) {
-    return condimentPrices[ingredient];
+    return CondimentModule.condimentPrices[ingredient];
   }
   
 };
@@ -25,9 +25,9 @@ module.exports = CondimentModule;
 
 //   // Private variable to store the different meat prices
 //   var condimentPrices = {
-//   	Mustard: 0.09, 
-//   	Mayo: 0.12,
-//   	Ketchup: 0.15
+  	// Mustard: 0.09, 
+  	// Mayo: 0.12,
+  	// Ketchup: 0.15
 //   };
 
 //   // Augment the original object with another method

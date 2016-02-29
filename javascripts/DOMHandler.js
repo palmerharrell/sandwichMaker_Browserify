@@ -44,13 +44,13 @@ meatChooser.addEventListener("change", function(event) {
 
 	 if (selectedTopping !== 'None') {
 	  // Determine the price of the topping chosen
-	  var meatPrice = SandwichMaker.addMeat(selectedTopping);
+	  var meatPrice = MakerModule.addMeat(selectedTopping);
 
-	  // Add the topping to the SandwichMaker to increase the total price
-	  SandwichMaker.addTopping(meatPrice);
+	  // Add the topping to the MakerModule to increase the total price
+	  MakerModule.addTopping(meatPrice);
 
 	  finalSandwichEl.innerHTML += `<p>$${meatPrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -58,10 +58,12 @@ meatChooser.addEventListener("change", function(event) {
 veggieChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var veggiePrice = SandwichMaker.addVeggie(selectedTopping);
-	  SandwichMaker.addTopping(veggiePrice);
+	  var veggiePrice = VeggieModule.addVeggie(selectedTopping);
+	  console.log("selectedTopping", selectedTopping);
+	  console.log("veggiePrice", veggiePrice);
+	  MakerModule.addTopping(veggiePrice);
 	  finalSandwichEl.innerHTML += `<p>$${veggiePrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -69,10 +71,10 @@ veggieChooser.addEventListener("change", function(event) {
 cheeseChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var cheesePrice = SandwichMaker.addCheese(selectedTopping);
-	  SandwichMaker.addTopping(cheesePrice);
+	  var cheesePrice = MakerModule.addCheese(selectedTopping);
+	  MakerModule.addTopping(cheesePrice);
 	  finalSandwichEl.innerHTML += `<p>$${cheesePrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -80,10 +82,10 @@ cheeseChooser.addEventListener("change", function(event) {
 condimentChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var condimentPrice = SandwichMaker.addCondiment(selectedTopping);
-	  SandwichMaker.addTopping(condimentPrice);
+	  var condimentPrice = MakerModule.addCondiment(selectedTopping);
+	  MakerModule.addTopping(condimentPrice);
 	  finalSandwichEl.innerHTML += `<p>$${condimentPrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -91,10 +93,10 @@ condimentChooser.addEventListener("change", function(event) {
 breadChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var breadPrice = SandwichMaker.addBread(selectedTopping);
-	  SandwichMaker.addTopping(breadPrice);
+	  var breadPrice = MakerModule.addBread(selectedTopping);
+	  MakerModule.addTopping(breadPrice);
 	  finalSandwichEl.innerHTML += `<p>$${breadPrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 

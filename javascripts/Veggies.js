@@ -3,12 +3,12 @@
 let VeggieModule = {
 
   veggiePrices: {
-    Turkey: 0.90, 
-    Beef: 1.10,
-    Chicken: 1.00
+    Tomato: 0.50, 
+    Onion: 0.40,
+    Pickles: 0.20
   },
   addVeggie: function(ingredient) {
-    return veggiePrices[ingredient];
+    return VeggieModule.veggiePrices[ingredient];
   }
   
 };

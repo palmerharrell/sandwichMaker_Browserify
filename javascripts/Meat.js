@@ -8,7 +8,7 @@ let MeatModule = {
     Chicken: 1.00
   },
   addMeat: function(ingredient) {
-    return meatPrices[ingredient];
+    return MeatModule.meatPrices[ingredient];
   }
   
 };

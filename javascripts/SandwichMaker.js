@@ -3,10 +3,10 @@
 let MakerModule = {
   totalPrice: 0,
   addTopping: function(toppingPrice) {
-    totalPrice += toppingPrice;
+    MakerModule.totalPrice += toppingPrice;
   },
   getTotal: function() {
-    return totalPrice;
+    return MakerModule.totalPrice;
   }
 };
 

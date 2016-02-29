@@ -9,7 +9,7 @@ let BreadModule = {
     Rye: 0.85
   },
   addBread: function(ingredient) {
-    return breadPrices[ingredient];
+    return BreadModule.breadPrices[ingredient];
   }
 
 };
@@ -46,12 +46,12 @@ module.exports = BreadModule;
 let CheeseModule = {
 
   cheesePrices: {
-    Turkey: 0.90, 
-    Beef: 1.10,
-    Chicken: 1.00
+    Swiss: 0.50, 
+    Cheddar: 0.40,
+    Provolone: 0.60
   },
   addCheese: function(ingredient) {
-    return cheesePrices[ingredient];
+    return CheeseModule.cheesePrices[ingredient];
   }
   
 };
@@ -68,9 +68,9 @@ module.exports = CheeseModule;
 
 //   // Private variable to store the different meat prices
 //   var cheesePrices = {
-//   	Swiss: 0.50, 
-//   	Cheddar: 0.40,
-//   	Provolone: 0.60
+  	// Swiss: 0.50, 
+  	// Cheddar: 0.40,
+  	// Provolone: 0.60
 //   };
 
 //   // Augment the original object with another method
@@ -88,12 +88,12 @@ module.exports = CheeseModule;
 let CondimentModule = {
 
   condimentPrices: {
-    Turkey: 0.90, 
-    Beef: 1.10,
-    Chicken: 1.00
+    Mustard: 0.09, 
+    Mayo: 0.12,
+    Ketchup: 0.15
   },
   addCondiment: function(ingredient) {
-    return condimentPrices[ingredient];
+    return CondimentModule.condimentPrices[ingredient];
   }
   
 };
@@ -110,9 +110,9 @@ module.exports = CondimentModule;
 
 //   // Private variable to store the different meat prices
 //   var condimentPrices = {
-//   	Mustard: 0.09, 
-//   	Mayo: 0.12,
-//   	Ketchup: 0.15
+  	// Mustard: 0.09, 
+  	// Mayo: 0.12,
+  	// Ketchup: 0.15
 //   };
 
 //   // Augment the original object with another method
@@ -171,13 +171,13 @@ meatChooser.addEventListener("change", function(event) {
 
 	 if (selectedTopping !== 'None') {
 	  // Determine the price of the topping chosen
-	  var meatPrice = SandwichMaker.addMeat(selectedTopping);
+	  var meatPrice = MakerModule.addMeat(selectedTopping);
 
-	  // Add the topping to the SandwichMaker to increase the total price
-	  SandwichMaker.addTopping(meatPrice);
+	  // Add the topping to the MakerModule to increase the total price
+	  MakerModule.addTopping(meatPrice);
 
 	  finalSandwichEl.innerHTML += `<p>$${meatPrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -185,10 +185,12 @@ meatChooser.addEventListener("change", function(event) {
 veggieChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var veggiePrice = SandwichMaker.addVeggie(selectedTopping);
-	  SandwichMaker.addTopping(veggiePrice);
+	  var veggiePrice = VeggieModule.addVeggie(selectedTopping);
+	  console.log("selectedTopping", selectedTopping);
+	  console.log("veggiePrice", veggiePrice);
+	  MakerModule.addTopping(veggiePrice);
 	  finalSandwichEl.innerHTML += `<p>$${veggiePrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -196,10 +198,10 @@ veggieChooser.addEventListener("change", function(event) {
 cheeseChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var cheesePrice = SandwichMaker.addCheese(selectedTopping);
-	  SandwichMaker.addTopping(cheesePrice);
+	  var cheesePrice = MakerModule.addCheese(selectedTopping);
+	  MakerModule.addTopping(cheesePrice);
 	  finalSandwichEl.innerHTML += `<p>$${cheesePrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -207,10 +209,10 @@ cheeseChooser.addEventListener("change", function(event) {
 condimentChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var condimentPrice = SandwichMaker.addCondiment(selectedTopping);
-	  SandwichMaker.addTopping(condimentPrice);
+	  var condimentPrice = MakerModule.addCondiment(selectedTopping);
+	  MakerModule.addTopping(condimentPrice);
 	  finalSandwichEl.innerHTML += `<p>$${condimentPrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -218,10 +220,10 @@ condimentChooser.addEventListener("change", function(event) {
 breadChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var breadPrice = SandwichMaker.addBread(selectedTopping);
-	  SandwichMaker.addTopping(breadPrice);
+	  var breadPrice = MakerModule.addBread(selectedTopping);
+	  MakerModule.addTopping(breadPrice);
 	  finalSandwichEl.innerHTML += `<p>$${breadPrice.toFixed(2)} ${selectedTopping} </p>`;
-	  finalPriceEl.innerHTML = `<p>$${SandwichMaker.getTotal().toFixed(2)}</p>`;
+	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
 	};
 });
 
@@ -248,7 +250,7 @@ let MeatModule = {
     Chicken: 1.00
   },
   addMeat: function(ingredient) {
-    return meatPrices[ingredient];
+    return MeatModule.meatPrices[ingredient];
   }
   
 };
@@ -285,10 +287,10 @@ module.exports = MeatModule;
 let MakerModule = {
   totalPrice: 0,
   addTopping: function(toppingPrice) {
-    totalPrice += toppingPrice;
+    MakerModule.totalPrice += toppingPrice;
   },
   getTotal: function() {
-    return totalPrice;
+    return MakerModule.totalPrice;
   }
 };
 
@@ -317,12 +319,12 @@ module.exports = MakerModule;
 let VeggieModule = {
 
   veggiePrices: {
-    Turkey: 0.90, 
-    Beef: 1.10,
-    Chicken: 1.00
+    Tomato: 0.50, 
+    Onion: 0.40,
+    Pickles: 0.20
   },
   addVeggie: function(ingredient) {
-    return veggiePrices[ingredient];
+    return VeggieModule.veggiePrices[ingredient];
   }
   
 };
