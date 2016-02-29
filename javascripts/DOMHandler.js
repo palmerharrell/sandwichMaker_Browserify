@@ -1,5 +1,12 @@
 "use strict";
 
+let MakerModule = require("./SandwichMaker");
+let BreadModule = require("./Bread");
+let MeatModule = require("./Meat");
+let VeggieModule = require("./Veggies");
+let CheeseModule = require("./Cheese");
+let CondimentModule = require("./Condiments");
+
 // Variable to hold the final price. Default to 0.
 var finalSandwichPrice = 0;
 
