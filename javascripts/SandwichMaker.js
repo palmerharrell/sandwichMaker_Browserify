@@ -1,3 +1,5 @@
+"use strict";
+
 var SandwichMaker = (function() {
 
   // Private variable to store the price
