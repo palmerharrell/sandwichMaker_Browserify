@@ -7,15 +7,6 @@ let VeggieModule = require("./Veggies");
 let CheeseModule = require("./Cheese");
 let CondimentModule = require("./Condiments");
 
-console.log("~~~ ~~~ ~~~ MODULES ~~~ ~~~ ~~~");
-console.log("MakerModule", MakerModule);
-console.log("BreadModule", BreadModule);
-console.log("MeatModule", MeatModule);
-console.log("VeggieModule", VeggieModule);
-console.log("CheeseModule", CheeseModule);
-console.log("CondimentModule", CondimentModule);
-
-
 // Variable to hold the final price. Default to 0.
 var finalSandwichPrice = 0;
 
@@ -44,7 +35,7 @@ meatChooser.addEventListener("change", function(event) {
 
 	 if (selectedTopping !== 'None') {
 	  // Determine the price of the topping chosen
-	  var meatPrice = MakerModule.addMeat(selectedTopping);
+	  var meatPrice = MeatModule.addMeat(selectedTopping);
 
 	  // Add the topping to the MakerModule to increase the total price
 	  MakerModule.addTopping(meatPrice);
@@ -59,8 +50,6 @@ veggieChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
 	  var veggiePrice = VeggieModule.addVeggie(selectedTopping);
-	  console.log("selectedTopping", selectedTopping);
-	  console.log("veggiePrice", veggiePrice);
 	  MakerModule.addTopping(veggiePrice);
 	  finalSandwichEl.innerHTML += `<p>$${veggiePrice.toFixed(2)} ${selectedTopping} </p>`;
 	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
@@ -71,7 +60,7 @@ veggieChooser.addEventListener("change", function(event) {
 cheeseChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var cheesePrice = MakerModule.addCheese(selectedTopping);
+	  var cheesePrice = CheeseModule.addCheese(selectedTopping);
 	  MakerModule.addTopping(cheesePrice);
 	  finalSandwichEl.innerHTML += `<p>$${cheesePrice.toFixed(2)} ${selectedTopping} </p>`;
 	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
@@ -82,7 +71,7 @@ cheeseChooser.addEventListener("change", function(event) {
 condimentChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var condimentPrice = MakerModule.addCondiment(selectedTopping);
+	  var condimentPrice = CondimentModule.addCondiment(selectedTopping);
 	  MakerModule.addTopping(condimentPrice);
 	  finalSandwichEl.innerHTML += `<p>$${condimentPrice.toFixed(2)} ${selectedTopping} </p>`;
 	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
@@ -93,7 +82,7 @@ condimentChooser.addEventListener("change", function(event) {
 breadChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	 if (selectedTopping !== 'None') {
-	  var breadPrice = MakerModule.addBread(selectedTopping);
+	  var breadPrice = BreadModule.addBread(selectedTopping);
 	  MakerModule.addTopping(breadPrice);
 	  finalSandwichEl.innerHTML += `<p>$${breadPrice.toFixed(2)} ${selectedTopping} </p>`;
 	  finalPriceEl.innerHTML = `<p>$${MakerModule.getTotal().toFixed(2)}</p>`;
